@@ -35,11 +35,11 @@ const question = async function pickRandomLeetcodeQuestion(array) {
     return
 }
 
-const start = function getShitStarted() {
+const start = async function getShitStarted() {
   const notesPath = envs();
   openNotes(notesPath);
   const array = patternArray()
-  question(array)
+  await question(array)
   return
 };
 
