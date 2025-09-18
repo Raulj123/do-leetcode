@@ -12,19 +12,21 @@ const envs = function validateEnvs() {
 
 const openNotes = function openNotesHandler(notesPath) {
   if (!notesPath) {
-    console.log("No environment variable in .env");
+    console.log("No environment variable in .env == no notes 😥");
   } else {
-    console.log("opening notes..");
     execFile("cmd.exe", ["/c", notesPath], (error) => {
       if (error) throw error;
       console.log("✅ Notes opened!");
     });
   }
+  return
 };
 
 const patternArray = function pickRandomPatternArray() {
   const key = Object.keys(data)
-  return data[key[key.length * Math.random() << 0]]
+  const randomIndex = key.length * Math.random() << 0
+  console.log(`🧩Leetcode Pattern🧩 ${key[randomIndex]}`)
+  return data[key[randomIndex]]
 };
 
 const question = async function pickRandomLeetcodeQuestion(array) {
@@ -38,6 +40,7 @@ const start = function getShitStarted() {
   openNotes(notesPath);
   const array = patternArray()
   question(array)
+  return
 };
 
 start();
